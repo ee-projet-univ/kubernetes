@@ -1,4 +1,4 @@
-# Créer une cluster kubernates avec minkube
+# Créer une cluster kubernates avec minikube
 
 ## Installation de minikube
 
@@ -35,7 +35,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8000
 
 # Start app
 CMD [ "npm", "start" ]
@@ -45,7 +45,7 @@ CMD [ "npm", "start" ]
 - Génération de l'image docker : `docker build -t soap-server:v1 .`
 - Exposition du service : 
     ```shell
-    kubectl run soap-server-instance --image=soap-server:v1 --port=8080
+    kubectl run soap-server-instance --image=soap-server:v1 --port=8000
     kubectl expose deployment soap-server-instance --type=NodePort
     kubectl get services
     minikube service soap-server-instance  --url
@@ -64,7 +64,7 @@ res.send({
 });
 ```
 
-### Générer l'image docker (rest-api-server:v1) & exposer le service (rest-api-server-instance)
+### Générer l'image docker (rest-api-server\nodejs-server-generated => rest-api-server:v1) & exposer le service (rest-api-server-instance) /!\ au port d'écoute
 
 ### Test avec postman : vérifier le HOSTNAME
 
