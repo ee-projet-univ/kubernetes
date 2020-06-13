@@ -41,7 +41,7 @@ EXPOSE 8000
 CMD [ "npm", "start" ]
 ```
 
-- Initalisation docker `@FOR /f "tokens=* delims=" %i IN ('minikube docker-env') DO %i`
+- Initalisation docker `@FOR /f "tokens=* delims=^L" %i IN ('minikube docker-env') DO %i`
 - Génération de l'image docker : `docker build -t soap-server:v1 .`
 - Exposition du service : 
     ```shell
